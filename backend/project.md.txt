@@ -1,0 +1,64 @@
+petRecovery
+------
+
+foundPetPerson
+------
++Register
++login
++report
++create FoundPet
++delete FoundPet
++edit FoundPet
++view FoundPet
++view all FoundPet
+
+lostPetOwner
+-----
++Register
++login
++search
++report
++create LostPet
++delete LostPet
++edit LostPet
++view LostPet
++view all LostPet
+
+models
+------
+
+petFoundPerson -> name, email, password, phoneNumber, address
+petLostPerson -> name, email, password, phoneNumber, address
+pets -> petName, breed, ownerName, address, image, petID
+lostReport -> petID, breed, color, description, image, ownerPhoneNumber
+foundReport -> breed, color, description, image, personPhoneNumber
+
+authentication
+------
+
+petFoundPerson
+  +create,update,delete report
+
+petLostPerson
+  +create,update,delete report
+
+
+API
+------
+
+user
+
+/api/v1/users
++name
++email
++password
+
++user / error
+
+/api/v1/reports
++
++
++
++
+
+
