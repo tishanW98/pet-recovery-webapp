@@ -30,7 +30,7 @@ jobs:
     - name: Install dependencies for backend
       run: |
         cd backend
-        npm ci
+        npm install
 
     - name: Build backend
       run: |
@@ -46,7 +46,7 @@ jobs:
     - name: Install dependencies for frontend
       run: |
         cd frontend
-        npm ci
+        npm install
 
     - name: Build frontend
       run: |
@@ -58,4 +58,5 @@ jobs:
         cd backend
         touch .env
         echo "MONGO_URI=${{ secrets.MONGO_URI }}" > .env
+
 
