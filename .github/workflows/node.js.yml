@@ -55,3 +55,6 @@ jobs:
         touch .env
         echo "MONGO_URI=${{ secrets.MONGO_URI }}" > .env
       working-directory: ./backend
+    - name: Restart Backend Service
+      run: pm2 restart BackendAPI
+      working-directory: ./backend
