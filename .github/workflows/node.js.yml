@@ -17,17 +17,45 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
+
+    - name: Use Node.js ${{ matrix.node-version }} for backend
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install
-    - run: npm run build --if-present
-    - run: |
+
+    - name: Install dependencies for backend
+      run: |
+        cd backend
+        npm ci
+
+    - name: Build backend
+      run: |
+        cd backend
+        npm run build
+
+    - name: Use Node.js ${{ matrix.node-version }} for frontend
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies for frontend
+      run: |
+        cd frontend
+        npm ci
+
+    - name: Build frontend
+      run: |
+        cd frontend
+        npm run build
+
+    - name: Create .env file for backend
+      run: |
+        cd backend
         touch .env
-        echo "${{ secrets.MONGO_URI }}" > .env
+        echo "MONGO_URI=${{ secrets.MONGO_URI }}" > .env
+
