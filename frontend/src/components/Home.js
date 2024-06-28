@@ -69,7 +69,7 @@ const Home = () => {
             component={Link}
             to="/signin"
           >
-            My Pet new22
+            My Pet new22 pro max
           </Button>
           {/* Additional paragraph under the buttons */}
           <Typography
