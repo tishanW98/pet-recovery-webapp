@@ -1,16 +1,30 @@
-version: "3.8"
+version: '3.8'
 
 services:
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: api_container
     ports:
       - "5000:5000"
     environment:
-      - MONGO_URI=mongodb+srv://tishanw:tishanW98@books-store-mern.3tvmvhm.mongodb.net/file?retryWrites=true&w=majority
+      - MONGO_URI="mongodb+srv://tishanw:tishanW98@books-store-mern.3tvmvhm.mongodb.net/file?retryWrites=true&w=majority"
+    networks:
+      - hotel_network
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: hotel_container
     ports:
       - "3000:3000"
     depends_on:
       - backend
+    networks:
+      - hotel_network
+
+networks:
+  hotel_network:
+

@@ -1,24 +1,13 @@
-# Use the official Node.js image
-FROM node:18
+FROM node:16-alpine
 
-# Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app/hotel
 
-# Install app dependencies
-COPY package*.json ./
+COPY package.json package-lock.json ./
+
 RUN npm install
 
-# Bundle app source
 COPY . .
 
-# Build the app for production
-RUN npm run build
-
-# Install serve to serve the built app
-RUN npm install -g serve
-
-# Expose the port that the app runs on
 EXPOSE 3000
 
-# Command to serve the built app
-CMD ["serve", "-s", "build"]
+CMD [ "npm", "start" ]

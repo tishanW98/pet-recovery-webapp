@@ -1,18 +1,13 @@
-# Use the official Node.js image
-FROM node:18
+FROM node:18-alpine
 
-# Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app/api
 
-# Install app dependencies
-COPY package*.json ./
+COPY package.json .
+
 RUN npm install
 
-# Bundle app source
 COPY . .
 
-# Expose the port that the app runs on
-EXPOSE 5000
+EXPOSE 5001
 
-# Command to run the app
 CMD [ "npm", "start" ]
