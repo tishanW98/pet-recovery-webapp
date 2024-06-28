@@ -73,7 +73,7 @@ const Home = () => {
           </Button>
           {/* Additional paragraph under the buttons */}
           <Typography variant="body1" style={{ marginTop: '20px', textAlign: 'center' }}>
-          "If you've found a lost pet, you have the opportunity to provide them with a safe haven by sharing their information on our website. By clicking 'Found a Pet' and entering the pet's details, you become a beacon of hope for owners searching for their beloved companions. Similarly, if you've lost a cherished pet, our platform offers you the chance to publish their information, increasing the chances of a heartwarming reunion with your furry friend. We're here to help connect pets with their loving families."
+          " a Pet' and entering the pet's details, you become a beacon of hope for owners searching for their beloved companions. Similarly, if you've lost a cherished pet, our platform offers you the chance to publish their information, increasing the chances of a heartwarming reunion with your furry friend. We're here to help connect pets with their loving families."
           </Typography>
         </Container>
       </div>
