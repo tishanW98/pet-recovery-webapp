@@ -69,7 +69,7 @@ const Home = () => {
             component={Link}
             to="/signin"
           >
-            I Lost my Pet
+            I Lost Pet
           </Button>
           {/* Additional paragraph under the buttons */}
           <Typography
